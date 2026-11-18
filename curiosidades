@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+cd "$(dirname "$0")"
+[ -d node/bin ] && export PATH="$PWD/node/bin:$PATH"
+if [ -z "$CURIOSIDADES_CHROME" ] && [ -x /opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell ]; then
+  export CURIOSIDADES_CHROME=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+fi
+exec .venv/bin/python herramientas/curiosidades.py "$@"
